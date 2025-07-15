@@ -1,8 +1,32 @@
-import React from "react";
-import { Gauge, Laugh, TrendingUp, Zap, Brain, ShieldAlert } from "lucide-react";
+"use client";
+
+import React, { useState } from "react";
+import { Gauge, Laugh, TrendingUp, Zap, Brain, ShieldAlert, Send } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
+  const [chat, setChat] = useState("");
+  const [responses, setResponses] = useState<string[]>([]);
+
+ const handleSend = () => {
+    if (!chat.trim()) return;
+
+    const responsesPool = [
+      "🤖 PajeetBot: You're probably buying high again, huh?",
+      "🤖 PajeetBot: Did your uncle’s WhatsApp tip bring you here?",
+      "🤖 PajeetBot: Remember, if it sounds like a multibagger... run.",
+      "🤖 PajeetBot: Buying the dip? More like digging your grave.",
+      "🤖 PajeetBot: That stock’s chart looks like my ECG during exam week.",
+      "🤖 PajeetBot: Technical analysis won’t save emotional trades.",
+      "🤖 PajeetBot: If FOMO had a face, it’d be yours right now."
+    ];
+
+    const randomResponse = responsesPool[Math.floor(Math.random() * responsesPool.length)];
+    setResponses((prev) => [...prev, randomResponse]);
+    setChat("");
+  };
+
+
   return (
     <main className="bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#121212] min-h-screen text-center p-6 text-white font-sans">
       {/* Header with Logo */}
@@ -10,8 +34,8 @@ export default function Home() {
         <Image
           src="/pajeetlogo.jpeg"
           alt="Pajeet Intelligence Logo"
-          width={100}
-          height={100}
+          width={60}
+          height={60}
           className="rounded-full shadow-md border border-[#2AE7E9]"
         />
         <h1 className="text-4xl md:text-5xl font-extrabold text-[#2AE7E9] tracking-tight">
@@ -27,9 +51,9 @@ export default function Home() {
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
           Humor + AI + Trading Culture. Let’s decode India’s chaotic market logic — one meme at a time.
         </p>
-        <button className="mt-8 bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black px-8 py-4 rounded-xl text-lg transition-all font-bold shadow-md hover:scale-105">
+        <a href="#chat" className="inline-block mt-8 bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black px-8 py-4 rounded-xl text-lg transition-all font-bold shadow-md hover:scale-105">
           Start Laughing
-        </button>
+        </a>
       </section>
 
       {/* AI Metrics / Market Sentiment */}
@@ -67,6 +91,32 @@ export default function Home() {
           <p className="text-gray-300">
             Sensex crashes 500 pts after Mercury retrograde hits trader confidence.
           </p>
+        </div>
+      </section>
+
+      {/* Simple Chat Section */}
+      <section id="chat" className="bg-[#1a1a1a] py-12 px-4 rounded-2xl max-w-3xl mx-auto">
+        <h3 className="text-2xl font-bold text-white mb-6">💬 Chat with PajeetBot</h3>
+        <div className="bg-[#121212] border border-[#333] rounded-lg p-4 h-60 overflow-y-auto mb-4 text-left">
+          {responses.map((msg, i) => (
+            <p key={i} className="text-sm text-gray-300 mb-2">{msg}</p>
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            className="flex-grow bg-[#222] text-white p-3 rounded-lg border border-[#444] focus:outline-none"
+            placeholder="Ask PajeetBot anything..."
+            value={chat}
+            onChange={(e) => setChat(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+          />
+          <button
+            onClick={handleSend}
+            className="bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black px-4 py-2 rounded-lg flex items-center gap-1 font-semibold"
+          >
+            <Send size={16} /> Send
+          </button>
         </div>
       </section>
 

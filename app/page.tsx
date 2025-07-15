@@ -8,7 +8,7 @@ export default function Home() {
   const [chat, setChat] = useState("");
   const [responses, setResponses] = useState<string[]>([]);
 
- const handleSend = () => {
+  const handleSend = () => {
     if (!chat.trim()) return;
 
     const responsesPool = [
@@ -25,7 +25,6 @@ export default function Home() {
     setResponses((prev) => [...prev, randomResponse]);
     setChat("");
   };
-
 
   return (
     <main className="bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#121212] min-h-screen text-center p-6 text-white font-sans">
@@ -121,8 +120,10 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="text-sm text-gray-500 pt-12 pb-8">
+      <footer className="text-sm text-gray-500 pt-12 pb-8 text-center">
         <p>&copy; 2025 Pajeet Intelligence. Powered by Memes & Machine Learning.</p>
+        <p className="mt-2">Pajeet Intelligence, Built on ₹100 budget, powered by ChatGPT free trial and Binance referrals.</p>
+        <p className="mt-1 text-xs text-gray-600">CA: </p>
       </footer>
     </main>
   );

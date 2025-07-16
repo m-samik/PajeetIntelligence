@@ -56,8 +56,8 @@ export default function Home() {
     <main className="bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#121212] min-h-screen text-center p-6 text-white font-sans overflow-hidden">
 
       {/* Floating Memes */}
-      <div className="fixed top-10 left-10 z-10 animate-caret-blink">
-        <Image src="/gifs/ajeet_cover.png" alt="Ajeet" width={300} height={300} />
+      <div className="fixed top-10 left-10 z-10 animate-ping">
+        <Image src="/gifs/ajeet_cover.png" alt="Ajeet" width={50} height={50} />
       </div>
       {/* <div className="fixed bottom-10 right-10 z-10 animate-pulse">
         <Image src="/gifs/giphy.gif" alt="Pajeet Crazy" width={150} height={150} />

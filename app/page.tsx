@@ -1,35 +1,74 @@
 "use client";
 
 import React, { useState } from "react";
-import { Gauge, Laugh, TrendingUp, Zap, Brain, ShieldAlert, Send } from "lucide-react";
+import { Zap, Brain, ShieldAlert, Send } from "lucide-react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [chat, setChat] = useState("");
   const [responses, setResponses] = useState<string[]>([]);
 
+  const gifs = [
+    "/gifs/ajeet_cover.png",
+    "/gifs/pumpit.gif",
+    "/gifs/giphy.gif"
+  ];
+
   const handleSend = () => {
     if (!chat.trim()) return;
 
-    const responsesPool = [
-      "🤖 PajeetBot: You're probably buying high again, huh?",
-      "🤖 PajeetBot: Did your uncle’s WhatsApp tip bring you here?",
-      "🤖 PajeetBot: Remember, if it sounds like a multibagger... run.",
-      "🤖 PajeetBot: Buying the dip? More like digging your grave.",
-      "🤖 PajeetBot: That stock’s chart looks like my ECG during exam week.",
-      "🤖 PajeetBot: Technical analysis won’t save emotional trades.",
-      "🤖 PajeetBot: If FOMO had a face, it’d be yours right now."
+    const userMessage = `🧑 You: ${chat}`;
+    setResponses((prev) => [...prev, userMessage]);
+
+    const replies = [
+      "🤖 PajeetBot: That stock's chart looks like my ECG after Maggi overdose.",
+      "🤖 PajeetBot: Buying high and selling low? Bold strategy.",
+      "🤖 PajeetBot: Your portfolio needs more prayers than analysis.",
+      "🤖 PajeetBot: If red candles gave heat, you'd be toasty by now.",
+      "🤖 PajeetBot: Multibagger dreams, single digit reality.",
+      "🤖 PajeetBot: Heard this tip on WhatsApp? Congrats, you’re late.",
+      "🤖 PajeetBot: Did you DYOR or just vibe with the chart?",
+      "🤖 PajeetBot: HODL? More like ‘Hope On Daily Losses.’",
+      "🤖 PajeetBot: Next time, invest in samosas. At least they deliver taste."
     ];
 
-    const randomResponse = responsesPool[Math.floor(Math.random() * responsesPool.length)];
-    setResponses((prev) => [...prev, randomResponse]);
+    const randomReply = replies[Math.floor(Math.random() * replies.length)];
+    const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+    setTimeout(() => {
+      setResponses((prev) => [
+        ...prev,
+        `${randomReply} <img src='${randomGif}' class='inline-block w-20 h-20 rounded-md ml-2'/>`
+      ]);
+    }, 1000);
+
     setChat("");
   };
 
+  const features = [
+    { title: "🧠 Meme of the Day", color: "#2AE7E9", text: "When you enter at ATH because ‘ab toh chalega.’" },
+    { title: "🤖 Pajeet’s AI Tip", color: "#c5f82a", text: "Diversify by investing in every IPO your barber recommends." },
+    { title: "📉 Market Masala", color: "#ef4f94", text: "Sensex crashes 500 pts after Mercury retrograde hits trader confidence." }
+  ];
+
   return (
-    <main className="bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#121212] min-h-screen text-center p-6 text-white font-sans">
-      {/* Header with Logo */}
-      <header className="flex justify-center items-center gap-4 mb-10">
+    <main className="bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#121212] min-h-screen text-center p-6 text-white font-sans overflow-hidden">
+      {/* Floating Memes */}
+      <div className="fixed top-10 left-10 z-10 animate-caret-blink">
+        <Image src="/gifs/ajeet_cover.png" alt="Ajeet" width={350} height={350} />
+      </div>
+      {/* <div className="fixed bottom-10 right-10 z-10 animate-pulse">
+        <Image src="/gifs/giphy.gif" alt="Pajeet Crazy" width={150} height={150} />
+      </div> */}
+
+      {/* Header */}
+      <motion.header 
+        className="flex justify-center items-center gap-4 mb-10"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <Image
           src="/pajeetlogo.jpeg"
           alt="Pajeet Intelligence Logo"
@@ -40,66 +79,85 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl font-extrabold text-[#2AE7E9] tracking-tight">
           Pajeet Intelligence
         </h1>
-      </header>
+      </motion.header>
 
       {/* Hero Section */}
-      <section className="text-center py-10 animate-fade-in">
-        <h2 className="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow">
+      <motion.section 
+        className="text-center py-10"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow animate-pulse">
           Your AI Trading Sidekick
         </h2>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
           Humor + AI + Trading Culture. Let’s decode India’s chaotic market logic — one meme at a time.
         </p>
-        <a href="#chat" className="inline-block mt-8 bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black px-8 py-4 rounded-xl text-lg transition-all font-bold shadow-md hover:scale-105">
+        <a href="#chat" className="inline-block mt-8 bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black px-8 py-4 rounded-xl text-lg transition-all font-bold shadow-md hover:scale-110">
           Start Laughing
         </a>
-      </section>
+      </motion.section>
 
-      {/* AI Metrics / Market Sentiment */}
+      {/* AI Metrics */}
       <section className="py-12">
-        <div className="max-w-5xl mx-auto bg-[#1e1e1e] shadow-2xl rounded-3xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center border border-[#333]">
+        <motion.div 
+          className="max-w-5xl mx-auto bg-[#1e1e1e] shadow-2xl rounded-3xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center border border-[#333]"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
           <div className="hover:scale-105 transition-transform">
-            <Zap className="mx-auto text-[#2AE7E9] w-12 h-12 mb-2" />
+            <Zap className="mx-auto text-[#2AE7E9] w-12 h-12 mb-2 animate-spin" />
             <p className="text-xl font-bold text-white">FOMO Score: 98%</p>
           </div>
           <div className="hover:scale-105 transition-transform">
-            <ShieldAlert className="mx-auto text-[#ef4f94] w-12 h-12 mb-2" />
+            <ShieldAlert className="mx-auto text-[#ef4f94] w-12 h-12 mb-2 animate-bounce" />
             <p className="text-xl font-bold text-white">Panic Index: 85%</p>
           </div>
           <div className="hover:scale-105 transition-transform">
-            <Brain className="mx-auto text-[#c5f82a] w-12 h-12 mb-2" />
+            <Brain className="mx-auto text-[#c5f82a] w-12 h-12 mb-2 animate-spin" />
             <p className="text-xl font-bold text-white">WhatsApp Accuracy: 6%</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Feature Cards with AI-like Styling */}
+      {/* Feature Cards */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto py-16">
-        <div className="bg-[#1e1e1e] rounded-2xl shadow-lg border border-[#333] p-6 hover:border-[#2AE7E9] transition-all duration-300 hover:scale-[1.03]">
-          <h2 className="text-2xl font-extrabold mb-3 text-[#2AE7E9]">🧠 Meme of the Day</h2>
-          <p className="text-gray-300">When you enter at ATH because ‘ab toh chalega.’</p>
-        </div>
-        <div className="bg-[#1e1e1e] rounded-2xl shadow-lg border border-[#333] p-6 hover:border-[#c5f82a] transition-all duration-300 hover:scale-[1.03]">
-          <h2 className="text-2xl font-extrabold mb-3 text-[#c5f82a]">🤖 Pajeet’s AI Tip</h2>
-          <p className="text-gray-300">
-            Diversify by investing in every IPO your barber recommends.
-          </p>
-        </div>
-        <div className="bg-[#1e1e1e] rounded-2xl shadow-lg border border-[#333] p-6 hover:border-[#ef4f94] transition-all duration-300 hover:scale-[1.03]">
-          <h2 className="text-2xl font-extrabold mb-3 text-[#ef4f94]">📉 Market Masala</h2>
-          <p className="text-gray-300">
-            Sensex crashes 500 pts after Mercury retrograde hits trader confidence.
-          </p>
-        </div>
+        {features.map((item, i) => (
+          <motion.div
+            key={i}
+            className="bg-[#1e1e1e] rounded-2xl shadow-lg border border-[#333] p-6 hover:scale-105 hover:border-white transition duration-300"
+            whileHover={{ rotate: [0, 3, -3, 0], scale: 1.05 }}
+          >
+            <h2 className="text-2xl font-extrabold mb-3" style={{ color: item.color }}>{item.title}</h2>
+            <p className="text-gray-300">{item.text}</p>
+          </motion.div>
+        ))}
       </section>
 
-      {/* Simple Chat Section */}
-      <section id="chat" className="bg-[#1a1a1a] py-12 px-4 rounded-2xl max-w-3xl mx-auto">
-        <h3 className="text-2xl font-bold text-white mb-6">💬 Chat with PajeetBot</h3>
+      {/* Chat Section */}
+      <motion.section 
+        id="chat" 
+        className="bg-[#1a1a1a] py-12 px-4 rounded-2xl max-w-3xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h3 className="text-2xl font-bold text-white mb-6 animate-bounce">💬 Chat with PajeetBot</h3>
         <div className="bg-[#121212] border border-[#333] rounded-lg p-4 h-60 overflow-y-auto mb-4 text-left">
-          {responses.map((msg, i) => (
-            <p key={i} className="text-sm text-gray-300 mb-2">{msg}</p>
-          ))}
+          <AnimatePresence>
+            {responses.map((msg, i) => (
+              <motion.div
+                key={i}
+                className="text-sm text-gray-300 mb-4"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                dangerouslySetInnerHTML={{ __html: msg }}
+              />
+            ))}
+          </AnimatePresence>
         </div>
         <div className="flex gap-2">
           <input
@@ -112,18 +170,18 @@ export default function Home() {
           />
           <button
             onClick={handleSend}
-            className="bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black px-4 py-2 rounded-lg flex items-center gap-1 font-semibold"
+            className="bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black px-4 py-2 rounded-lg flex items-center gap-1 font-semibold animate-pulse"
           >
             <Send size={16} /> Send
           </button>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
-      <footer className="text-sm text-gray-500 pt-12 pb-8 text-center">
+      <footer className="text-sm text-gray-500 pt-12 pb-8 text-center animate-fade-in">
         <p>&copy; 2025 Pajeet Intelligence. Powered by Memes & Machine Learning.</p>
         <p className="mt-2">Pajeet Intelligence, Built on ₹100 budget, powered by ChatGPT free trial and Binance referrals.</p>
-        <p className="mt-1 text-xs text-gray-600">CA: </p>
+        <p className="mt-1 text-xs text-gray-600">CA: To be Announced</p>
       </footer>
     </main>
   );

@@ -54,9 +54,10 @@ export default function Home() {
 
   return (
     <main className="bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#121212] min-h-screen text-center p-6 text-white font-sans overflow-hidden">
+
       {/* Floating Memes */}
       <div className="fixed top-10 left-10 z-10 animate-caret-blink">
-        <Image src="/gifs/ajeet_cover.png" alt="Ajeet" width={350} height={350} />
+        <Image src="/gifs/ajeet_cover.png" alt="Ajeet" width={300} height={300} />
       </div>
       {/* <div className="fixed bottom-10 right-10 z-10 animate-pulse">
         <Image src="/gifs/giphy.gif" alt="Pajeet Crazy" width={150} height={150} />
@@ -181,8 +182,13 @@ export default function Home() {
       <footer className="text-sm text-gray-500 pt-12 pb-8 text-center animate-fade-in">
         <p>&copy; 2025 Pajeet Intelligence. Powered by Memes & Machine Learning.</p>
         <p className="mt-2">Pajeet Intelligence, Built on ₹100 budget, powered by ChatGPT free trial and Binance referrals.</p>
-        <p className="mt-1 text-xs text-gray-600">CA: To be Announced</p>
+        <p className="mt-1 text-xs text-gray-600">CA: 0xPajeet420BhaiPleasePumpIt123</p>
       </footer>
+       <section>
+              <div style={{ height: "30px", padding: "0px", margin: "-22px", width: "" }}>
+            <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no" width="100%" height="36px" scrolling="auto" marginWidth={0} marginHeight={0} frameBorder={0} style={{ border: "0", margin: "0", padding: "0" }}></iframe>
+          </div>
+      </section>
     </main>
   );
 }

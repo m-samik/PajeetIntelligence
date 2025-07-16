@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Zap, Brain, ShieldAlert, Send } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,7 +14,16 @@ export default function Home() {
     "/gifs/pumpit.gif",
     "/gifs/giphy.gif"
   ];
+  
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const handlePlayAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play().catch((err) => {
+        console.warn("Playback failed:", err);
+      });
+    }
+  };
   const handleSend = () => {
     if (!chat.trim()) return;
 
@@ -64,7 +73,7 @@ export default function Home() {
       </div> */}
 
       {/* Header */}
-      <motion.header 
+      <motion.header
         className="flex justify-center items-center gap-4 mb-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -81,9 +90,17 @@ export default function Home() {
           Pajeet Intelligence
         </h1>
       </motion.header>
-
+        {/* AUDIO Element */}
+      <audio ref={audioRef} src="/scammer.mp3" loop preload="auto" />
+      {/* Play Button */}
+      <button
+        onClick={handlePlayAudio}
+        className="fixed top-6 right-6 z-50 bg-[#2AE7E9] hover:bg-[#4BE0E4] text-black font-bold py-2 px-4 rounded-full shadow animate-pulse transition-all"
+      >
+        🔊 Dont Click Me
+      </button>
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="text-center py-10"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -102,7 +119,7 @@ export default function Home() {
 
       {/* AI Metrics */}
       <section className="py-12">
-        <motion.div 
+        <motion.div
           className="max-w-5xl mx-auto bg-[#1e1e1e] shadow-2xl rounded-3xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center border border-[#333]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -138,8 +155,8 @@ export default function Home() {
       </section>
 
       {/* Chat Section */}
-      <motion.section 
-        id="chat" 
+      <motion.section
+        id="chat"
         className="bg-[#1a1a1a] py-12 px-4 rounded-2xl max-w-3xl mx-auto"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -182,12 +199,12 @@ export default function Home() {
       <footer className="text-sm text-gray-500 pt-12 pb-8 text-center animate-fade-in">
         <p>&copy; 2025 Pajeet Intelligence. Powered by Memes & Machine Learning.</p>
         <p className="mt-2">Pajeet Intelligence, Built on ₹100 budget, powered by ChatGPT free trial and Binance referrals.</p>
-        <p className="mt-1 text-xs text-gray-600">CA: 0xPajeet420BhaiPleasePumpIt123</p>
+        <p className="mt-1 text-xs text-gray-600">CA: 0xMCRYPZZZZZZZZZZZZZZZ</p>
       </footer>
-       <section>
-              <div style={{ height: "30px", padding: "0px", margin: "-22px", width: "" }}>
-            <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no" width="100%" height="36px" scrolling="auto" marginWidth={0} marginHeight={0} frameBorder={0} style={{ border: "0", margin: "0", padding: "0" }}></iframe>
-          </div>
+      <section>
+        <div style={{ height: "30px", padding: "0px", margin: "-22px", width: "" }}>
+          <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no" width="100%" height="36px" scrolling="auto" marginWidth={0} marginHeight={0} frameBorder={0} style={{ border: "0", margin: "0", padding: "0" }}></iframe>
+        </div>
       </section>
     </main>
   );

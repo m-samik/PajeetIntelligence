@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "PAJEET INTELLIGENCE",
-  description: "MCYRPZZ",
+  description: "Pajeet Intelligence, Built on 100 rupees budget, powered by ChatGPT free trial and Binance referrals.",
 };
 
 export default function RootLayout({

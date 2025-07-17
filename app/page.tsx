@@ -4,6 +4,8 @@ import React, { useRef, useState } from "react";
 import { Zap, Brain, ShieldAlert, Send } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaXTwitter } from "react-icons/fa6"; // You must have react-icons installed
+
 
 export default function Home() {
   const [chat, setChat] = useState("");
@@ -14,7 +16,7 @@ export default function Home() {
     "/gifs/pumpit.gif",
     "/gifs/giphy.gif"
   ];
-  
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handlePlayAudio = () => {
@@ -24,6 +26,7 @@ export default function Home() {
       });
     }
   };
+
   const handleSend = () => {
     if (!chat.trim()) return;
 
@@ -90,7 +93,7 @@ export default function Home() {
           Pajeet Intelligence
         </h1>
       </motion.header>
-        {/* AUDIO Element */}
+      {/* AUDIO Element */}
       <audio ref={audioRef} src="/scammer.mp3" loop preload="auto" />
       {/* Play Button */}
       <button
@@ -106,9 +109,14 @@ export default function Home() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
       >
+        <div className="inline-flex items-center px-4 py-[6px] rounded-full bg-[#2AE7E9] border border-[#4BE0E4] shadow-[inset_0_1px_3px_rgba(255,255,255,0.1)] text-[#000000] font-medium text-sm mb-8">
+          <span className="mr-2">🎉</span>
+          <span>CA: To be announced</span>
+        </div>
         <h2 className="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow animate-pulse">
           Your AI Trading Sidekick
         </h2>
+
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
           Humor + AI + Trading Culture. Let’s decode India’s chaotic market logic — one meme at a time.
         </p>
@@ -196,10 +204,25 @@ export default function Home() {
       </motion.section>
 
       {/* Footer */}
+
       <footer className="text-sm text-gray-500 pt-12 pb-8 text-center animate-fade-in">
         <p>&copy; 2025 Pajeet Intelligence. Powered by Memes & Machine Learning.</p>
-        <p className="mt-2">Pajeet Intelligence, Built on ₹100 budget, powered by ChatGPT free trial and Binance referrals.</p>
-        <p className="mt-1 text-xs text-gray-600">CA: 0xMCRYPZZZZZZZZZZZZZZZ</p>
+        <p className="mt-2">
+          Pajeet Intelligence, Built on ₹100 budget, powered by ChatGPT free trial and Binance referrals.
+        </p>
+
+        {/* Glowing Animated Social Icons */}
+        <div className="flex justify-center items-center gap-6 mt-6 text-2xl mb-4">
+          <a
+            href="https://x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white glow-icon hover:text-[#1DA1F2]"
+          >
+            <FaXTwitter className="icon-animate" />
+          </a>
+        
+        </div>
       </footer>
       <section>
         <div style={{ height: "30px", padding: "0px", margin: "-22px", width: "" }}>

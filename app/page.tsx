@@ -59,7 +59,7 @@ export default function Home() {
   };
 
   const features = [
-    { title: "🧠 Meme of the Day", color: "#2AE7E9", text: "When you enter at ATH because ‘ab toh chalega.’" },
+    { title: "🧠 Meme of the Day", color: "#2AE7E9", text: "When you buy at the all-time high thinking, ‘Now it’s going to moon’… but it starts digging a grave instead." },
     { title: "🤖 Pajeet’s AI Tip", color: "#c5f82a", text: "Diversify by investing in every IPO your barber recommends." },
     { title: "📉 Market Masala", color: "#ef4f94", text: "Sensex crashes 500 pts after Mercury retrograde hits trader confidence." }
   ];

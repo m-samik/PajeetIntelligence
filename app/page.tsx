@@ -94,7 +94,7 @@ export default function Home() {
         </h1>
       </motion.header>
       {/* AUDIO Element */}
-      <audio ref={audioRef} src="/scammer.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/scammer.mp3" loop preload="aut o" />
       {/* Play Button */}
       <button
         onClick={handlePlayAudio}
@@ -113,9 +113,10 @@ export default function Home() {
           <span className="mr-2">🎉</span>
           <span>CA: To be announced</span>
         </div>
-        <h2 className="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow animate-pulse">
-          Your AI Trading Sidekick
+        <h2 className="text-5xl md:text-4xl font-black text-white mb-6 drop-shadow animate-pulse">
+          Analysing Pajeet market logic: 
         </h2>
+        <h3 className="text-5xl md:text-3xl font-black text-[#2AE7E9] mb-6 drop-shadow animate-bounce">“Why down after I buy?”</h3>
 
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
           Humor + AI + Trading Culture. Let’s decode India’s chaotic market logic — one meme at a time.
@@ -208,13 +209,13 @@ export default function Home() {
       <footer className="text-sm text-gray-500 pt-12 pb-8 text-center animate-fade-in">
         <p>&copy; 2025 Pajeet Intelligence. Powered by Memes & Machine Learning.</p>
         <p className="mt-2">
-          Pajeet Intelligence, Built on ₹100 budget, powered by ChatGPT free trial and Binance referrals.
+          Pajeet Intelligence, Built on 100 rupees budget, powered by ChatGPT free trial and Binance referrals.
         </p>
 
         {/* Glowing Animated Social Icons */}
         <div className="flex justify-center items-center gap-6 mt-6 text-2xl mb-4">
           <a
-            href="https://x.com"
+            href="https://x.com/pajeetintel.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white glow-icon hover:text-[#1DA1F2]"

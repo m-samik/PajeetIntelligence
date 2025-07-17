@@ -59,9 +59,9 @@ export default function Home() {
   };
 
   const features = [
-    { title: "🧠 Meme of the Day", color: "#2AE7E9", text: "When you buy at the all-time high thinking, ‘Now it’s going to moon’… but it starts digging a grave instead." },
-    { title: "🤖 Pajeet’s AI Tip", color: "#c5f82a", text: "Diversify by investing in every IPO your barber recommends." },
-    { title: "📉 Market Masala", color: "#ef4f94", text: "Sensex crashes 500 pts after Mercury retrograde hits trader confidence." }
+    { title: "🧠 Meme of the Day", color: "#2AE7E9", text: "When you ape into a token because it’s already up 800%“can’t miss this rocket." },
+    { title: "🤖 Pajeet’s AI Tip", color: "#c5f82a", text: "Always invest in coins named after animals, fruits, or Elon’s mood swings." },
+    { title: "📉 Market Masala", color: "#ef4f94", text: "Panic in markets as Nigerian whales dump after cousin in Canada says “this coin is dead." }
   ];
 
   return (

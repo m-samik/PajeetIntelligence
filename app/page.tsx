@@ -207,7 +207,6 @@ export default function Home() {
       {/* Footer */}
 
       <footer className="text-sm text-gray-500 pt-12 pb-8 text-center animate-fade-in">
-        <p>&copy; 2025 Pajeet Intelligence. Powered by Memes & Machine Learning.</p>
         <p className="mt-2">
           Pajeet Intelligence, Built on 100 rupees budget, powered by ChatGPT free trial and Binance referrals.
         </p>

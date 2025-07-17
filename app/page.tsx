@@ -111,7 +111,7 @@ export default function Home() {
       >
         <div className="inline-flex items-center px-4 py-[6px] rounded-full bg-[#2AE7E9] border border-[#4BE0E4] shadow-[inset_0_1px_3px_rgba(255,255,255,0.1)] text-[#000000] font-medium text-sm mb-8">
           <span className="mr-2">🎉</span>
-          <span>CA: To be announced</span>
+          <span>CA: H5CmkkYvSyCCS31oLAQBZa2Q1fpSjwWt4uG1TbnAbonk</span>
         </div>
         <h2 className="text-5xl md:text-4xl font-black text-white mb-6 drop-shadow animate-pulse">
           Analysing Pajeet market logic: 

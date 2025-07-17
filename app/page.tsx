@@ -215,7 +215,7 @@ export default function Home() {
         {/* Glowing Animated Social Icons */}
         <div className="flex justify-center items-center gap-6 mt-6 text-2xl mb-4">
           <a
-            href="https://x.com/pajeetintel.com"
+            href="https://x.com/pajeetintel"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white glow-icon hover:text-[#1DA1F2]"

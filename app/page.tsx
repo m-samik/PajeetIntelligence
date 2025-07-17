@@ -109,12 +109,13 @@ export default function Home() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
       >
-        <div className="inline-flex items-center px-4 py-[6px] rounded-full bg-[#2AE7E9] border border-[#4BE0E4] shadow-[inset_0_1px_3px_rgba(255,255,255,0.1)] text-[#000000] font-medium text-sm mb-8">
+        <div className="inline-flex flex-wrap items-center px-4 py-[6px] rounded-full bg-[#2AE7E9] border border-[#4BE0E4] shadow-[inset_0_1px_3px_rgba(255,255,255,0.1)] text-[#000000] font-medium text-sm mb-8 max-w-full break-all">
           <span className="mr-2">🎉</span>
-          <span>CA: H5CmkkYvSyCCS31oLAQBZa2Q1fpSjwWt4uG1TbnAbonk</span>
+          <span className="whitespace-normal break-all">CA: H5CmkkYvSyCCS31oLAQBZa2Q1fpSjwWt4uG1TbnAbonk</span>
         </div>
+
         <h2 className="text-5xl md:text-4xl font-black text-white mb-6 drop-shadow animate-pulse">
-          Analysing Pajeet market logic: 
+          Analysing Pajeet market logic:
         </h2>
         <h3 className="text-5xl md:text-3xl font-black text-[#2AE7E9] mb-6 drop-shadow animate-bounce">“Why down after I buy?”</h3>
 
@@ -221,7 +222,7 @@ export default function Home() {
           >
             <FaXTwitter className="icon-animate" />
           </a>
-        
+
         </div>
       </footer>
       <section>
